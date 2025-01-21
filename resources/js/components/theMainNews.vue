@@ -1,33 +1,93 @@
 <template>
-    <p>The Main News Feed!</p>
 
-    <!--    <div class="flex gap-2">-->
-    <!--        <div class="mainNews mt-1">-->
-    <!--            <p><span class="p-1 bg-[#DA0000] text-white">ULTIMA ORĂ:</span>-->
-    <!--                Noi artifacte care demonstreaza existenta templierilor gasite la Viena.-->
-    <!--                Ce au reușit să afle oamenii de știință despre viața templierilor și-->
-    <!--                de ce Italia își înainteaza dreptul la lucrările arheologice?-->
-    <!--            </p>-->
-    <!--            <img src="templiers.jpg">-->
-    <!--        </div>-->
+    <div v-if="Object.keys(news).length > 0" class="theMainTitle flex gap-5">
 
-    <!--        <div class="flex flex-col">-->
-    <!--            <div>-->
-    <!--                <img class="w-[455px]" src="autumn.jpg">-->
-    <!--                <p>Ce spun meteorologii despre toamna 2025?-->
-    <!--                    Se așteaptă să avem cea mai călduroasă toamnă din ultimele 100 de ani.-->
-    <!--                </p>-->
-    <!--            </div>-->
+        <div class="ml-[10%] w-[50%] flex flex-col gap-5">
+            <div>
+                <p class="text-2xl">{{ news[0].title }}</p>
+                <img :src=news[0].image style="width:100%">
+            </div>
 
-    <!--            <div>-->
-    <!--                <img class="w-[455px]" src="i.jpg">-->
-    <!--                <p>Dar tu ti-ai facut deja planurile pentru vara?-->
-    <!--                    Top destinatii alese de moldoveni pentru acest an. Se asteapta o majorare a preturilor pentru-->
-    <!--                    vacanta?-->
-    <!--                </p>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
+            <div class="w-[100%] flex gap-4">
+                <div>
+                    <div>
+                        <img :src=news[1].image style="width:550px">
+                        <p>{{ news[1].title }}</p>
+                    </div>
+
+                    <div>
+                        <img :src=news[2].image style="width:550px">
+                        <p>{{ news[2].title }}</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <img :src=news[1].image style="width:550px">
+                        <p>{{ news[1].title }}</p>
+                    </div>
+
+                    <div>
+                        <img :src=news[1].image style="width:550px">
+                        <p>{{ news[1].title }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-[100%] flex gap-4">
+                <div>
+                    <div>
+                        <img :src=news[1].image style="width:550px">
+                        <p>{{ news[1].title }}</p>
+                    </div>
+
+                    <div>
+                        <img :src=news[1].image style="width:550px">
+                        <p>{{ news[1].title }}</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <img :src=news[1].image style="width:550px">
+                        <p>{{ news[1].title }}</p>
+                    </div>
+
+                    <div>
+                        <img :src=news[1].image style="width:550px">
+                        <p>{{ news[1].title }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-[30%] flex flex-col mt-4">
+            <div class="mb-5">
+                <img :src=news[1].image style="width:550px">
+                <p class="bg-gray-200 w-[93%] font-extralight">{{ news[1].title }}</p>
+            </div>
+            <div class="mb-5">
+                <img :src=news[2].image style="width:550px">
+                <p class="font-extralight w-[93%]">{{ news[2].title }}</p>
+            </div>
+            <div class="mb-5">
+                <img :src=news[1].image style="width:550px">
+                <p>{{ news[1].title }}</p>
+            </div>
+            <div class="mb-5">
+                <img :src=news[1].image style="width:550px">
+                <p>{{ news[1].title }}</p>
+            </div>
+            <div class="mb-5">
+                <img :src=news[1].image style="width:550px">
+                <p>{{ news[1].title }}</p>
+            </div>
+            <div class="mb-5">
+                <img :src=news[1].image style="width:550px">
+                <p>{{ news[1].title }}</p>
+            </div>
+        </div>
+    </div>
 
 
 </template>
@@ -40,31 +100,19 @@ const news = ref({});
 
 function selectAllNews() {
     axios.get('/api/getNews').then(res => {
-        news.value = res.data.news;
+        news.value = res.data.data;
+        console.log(res.data.data);
     });
 }
-onMounted( ()=>{
+
+onMounted(() => {
     selectAllNews();
 })
 
 </script>
 
 <style lang="scss" scoped>
-//.mainNews {
-//    margin-left: 5%;
-//
-//
-//    img {
-//        width: 589px;
-//        height: 380px;
-//    }
-//
-//    p {
-//        font-weight: bold;
-//        font-size: 20px;
-//    }
-//}
-//
-//.rightSide {
-//}
+
+
+
 </style>
