@@ -8,3 +8,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/getNews', ['App\Http\Controllers\MainController', 'selectAll']);
+Route::get('/getNewsInfo/{id}', ['App\Http\Controllers\MainController', 'obtainInfo']);

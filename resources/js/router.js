@@ -38,6 +38,11 @@ const router = createRouter({
             name: 'News',
             component: () => import('../js/components/theNews.vue')
         },
+        {
+            path: '/newsInfo',
+            name: 'ExpDelete',
+            component: () => import('../js/components/ExpDelete.vue')
+        },
     ]
 })
 export default router

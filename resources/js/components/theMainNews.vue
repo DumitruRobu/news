@@ -1,118 +1,33 @@
 <template>
-
-    <div v-if="Object.keys(news).length > 0" class="theMainTitle flex gap-5">
-
-        <div class="ml-[10%] w-[50%] flex flex-col gap-5">
-            <div>
-                <p class="text-2xl">{{ news[0].title }}</p>
-                <img :src=news[0].image style="width:100%">
-            </div>
-
-            <div class="w-[100%] flex gap-4">
-                <div>
-                    <div>
-                        <img :src=news[1].image style="width:550px">
-                        <p>{{ news[1].title }}</p>
-                    </div>
-
-                    <div>
-                        <img :src=news[2].image style="width:550px">
-                        <p>{{ news[2].title }}</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <img :src=news[1].image style="width:550px">
-                        <p>{{ news[1].title }}</p>
-                    </div>
-
-                    <div>
-                        <img :src=news[1].image style="width:550px">
-                        <p>{{ news[1].title }}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w-[100%] flex gap-4">
-                <div>
-                    <div>
-                        <img :src=news[1].image style="width:550px">
-                        <p>{{ news[1].title }}</p>
-                    </div>
-
-                    <div>
-                        <img :src=news[1].image style="width:550px">
-                        <p>{{ news[1].title }}</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <img :src=news[1].image style="width:550px">
-                        <p>{{ news[1].title }}</p>
-                    </div>
-
-                    <div>
-                        <img :src=news[1].image style="width:550px">
-                        <p>{{ news[1].title }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="w-[30%] flex flex-col mt-4">
-            <div class="mb-5">
-                <img :src=news[1].image style="width:550px">
-                <p class="bg-gray-200 w-[93%] font-extralight">{{ news[1].title }}</p>
-            </div>
-            <div class="mb-5">
-                <img :src=news[2].image style="width:550px">
-                <p class="font-extralight w-[93%]">{{ news[2].title }}</p>
-            </div>
-            <div class="mb-5">
-                <img :src=news[1].image style="width:550px">
-                <p>{{ news[1].title }}</p>
-            </div>
-            <div class="mb-5">
-                <img :src=news[1].image style="width:550px">
-                <p>{{ news[1].title }}</p>
-            </div>
-            <div class="mb-5">
-                <img :src=news[1].image style="width:550px">
-                <p>{{ news[1].title }}</p>
-            </div>
-            <div class="mb-5">
-                <img :src=news[1].image style="width:550px">
-                <p>{{ news[1].title }}</p>
-            </div>
-        </div>
+    <div v-if="news.length > 0" class="w-[50%]">
+        <p>{{news[0].title}}</p>
+        <img :src="news[0].image">
     </div>
 
+    <div>
 
+    </div>
 </template>
 
 <script setup>
-
 import {ref, onMounted} from 'vue'
 
-const news = ref({});
+const news = ref([]);
+async function getResults(){
+    try{
+        const response = await axios.get('/api/getNews');
+        news.value = response.data.data;
 
-function selectAllNews() {
-    axios.get('/api/getNews').then(res => {
-        news.value = res.data.data;
-        console.log(res.data.data);
-    });
+    }catch (error){
+        console.error('Error during data fetching ' + error);
+    }
 }
-
-onMounted(() => {
-    selectAllNews();
+onMounted(()=>{
+    getResults();
 })
 
 </script>
 
-<style lang="scss" scoped>
-
-
+<style scoped>
 
 </style>
