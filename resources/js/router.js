@@ -39,9 +39,9 @@ const router = createRouter({
             component: () => import('../js/components/theNews.vue')
         },
         {
-            path: '/newsInfo',
-            name: 'ExpDelete',
-            component: () => import('../js/components/ExpDelete.vue')
+            path: '/newsInfo/:id',
+            name: 'NewsDetails',
+            component: () => import('./components/NewsDetails.vue')
         },
     ]
 })

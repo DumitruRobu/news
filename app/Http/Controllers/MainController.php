@@ -15,8 +15,8 @@ class MainController extends Controller
         $allTheNews = NewsFeed::all();
         return NewsFeedResource::collection($allTheNews);
     }
-    public function obtainInfo(){
-        $theNewsInfo = NewsFeed::findOrFail(1);
-        return $theNewsInfo;
+    public function obtainInfo($id){
+        $theNewsInfo = NewsFeed::findOrFail($id);
+        return new NewsFeedResource($theNewsInfo);
     }
 }
