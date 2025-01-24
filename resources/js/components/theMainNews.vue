@@ -1,9 +1,8 @@
 <template>
     <div class="theParentBlock" v-if="news.length > 0">
         <div class="newsDiv" v-for="new1 in news">
-            <router-link :to="{name:'NewsDetails', params:{id:new1.id}}">
+            <router-link :to="{name:'NewsMoreInfo', params:{id:new1.id}}">
                 <img :src="new1.image">
-                <p>{{ new1.image }}</p>
                 <p>{{ new1.title }}</p>
             </router-link>
         </div>
@@ -38,6 +37,7 @@ onMounted(() => {
     margin-left: 5%;
     margin-top: 10px;
     gap: 10px;
+
 }
 
 img {
@@ -50,7 +50,8 @@ img {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
-
+    padding:3px;
+    //box-shadow: 0 0 65px rgba(184, 184, 184, 0.5);
 
     p {
         width: 300px;

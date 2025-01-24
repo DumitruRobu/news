@@ -36,7 +36,7 @@ export default {
     color: white;
     align-items: center;
     font-weight: bold;
-    box-shadow: 0 0 15px rgba(184, 184, 184, 0.5);
+    box-shadow: 0 0 65px rgba(184, 184, 184, 0.5);
 }
 .theOptions{
     width:70%;
