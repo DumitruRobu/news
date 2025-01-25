@@ -19,4 +19,8 @@ class MainController extends Controller
         $theNewsInfo = NewsFeed::findOrFail($id);
         return new NewsFeedResource($theNewsInfo);
     }
+    public function getLastOne(){
+        $theLastElement = NewsFeed::latest('id')->first();
+        return $theLastElement;
+    }
 }

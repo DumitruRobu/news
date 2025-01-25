@@ -43,6 +43,11 @@ const router = createRouter({
             name: 'NewsMoreInfo',
             component: () => import('./components/NewsMoreInfo.vue')
         },
+        {
+            path: '/exp',
+            name: 'EXP',
+            component: () => import('./components/EXP.vue')
+        },
     ]
 })
 export default router

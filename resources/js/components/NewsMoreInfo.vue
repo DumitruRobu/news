@@ -40,12 +40,13 @@ function formatContent(content) {
     // Make the first sentence bold and create paragraphs
     const paragraphs = [];
     let currentParagraph = `<strong>${sentences.shift()}.</strong>`;
-    sentences.forEach((sentence, index) => {
-        if ((index + 1) % 3 === 0) { // Create a new paragraph every 3 sentences
-            paragraphs.push(`${currentParagraph} ${sentence}.`);
-            currentParagraph = '';
+
+    sentences.forEach((sentence) => {
+        if (currentParagraph.split('.').length - 1 >= 3) {
+            paragraphs.push(currentParagraph);
+            currentParagraph = sentence+'.';
         } else {
-            currentParagraph += ` ${sentence}.`;
+            currentParagraph += ' ' + sentence + '.';
         }
     });
 
@@ -55,6 +56,7 @@ function formatContent(content) {
 
     // Save formatted paragraphs
     processedContent.value = paragraphs;
+    console.log(processedContent.value);
 }
 
 onMounted(() => {
@@ -65,5 +67,6 @@ onMounted(() => {
 <style scoped>
 p {
     margin-bottom: 1em;
+    text-indent: 2em;
 }
 </style>
