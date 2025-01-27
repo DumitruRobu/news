@@ -21,7 +21,14 @@
         "vue-router": "^4.5.0"
     },
     "dependencies": {
+        "@tiptap/extension-underline": "^2.11.3",
+        "@tiptap/pm": "^2.11.3",
+        "@tiptap/starter-kit": "^2.11.3",
+        "@tiptap/vue-3": "^2.11.3",
         "pinia": "^2.3.0",
-        "router": "^2.0.0"
+        "quill": "^2.0.3",
+        "router": "^2.0.0",
+        "vue-quill-editor": "^3.0.6",
+        "vue3-quill": "^0.3.1"
     }
 }
