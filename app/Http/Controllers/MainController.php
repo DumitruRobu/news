@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SubmitFormRequest;
 use App\Http\Resources\NewsFeedResource;
 use App\Models\NewsFeed;
 use Illuminate\Http\Request;
@@ -22,5 +23,9 @@ class MainController extends Controller
     public function getLastOne(){
         $theLastElement = NewsFeed::latest('id')->first();
         return $theLastElement;
+    }
+    public function submitForm(SubmitFormRequest $request){
+        $data = $request->validated();
+        return $data;
     }
 }
