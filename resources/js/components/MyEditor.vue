@@ -15,7 +15,7 @@
             <button @click="editor.chain().focus().toggleItalic().run"
                     :disabled="!editor.can().chain().focus().toggleItalic().run()"
                     :class="{'bg-gray-200 rounded italic':editor.isActive('italic')}"
-                    class="p-1 m-1 italic hover:bg-gray-100 hover:rounded"
+                    class="p-1 italic hover:bg-gray-100 hover:rounded"
             >
                 <ItalicIcon :size="24" title="Italic"/>
                 <!--                <i class="fa-solid fa-italic"></i>-->
@@ -24,7 +24,7 @@
             <button @click="editor.chain().focus().toggleUnderline().run"
                     :disabled="!editor.can().chain().focus().toggleUnderline().run()"
                     :class="{'bg-gray-200 rounded underline':editor.isActive('underline')}"
-                    class="p-1 m-1 hover:bg-gray-100 hover:rounded"
+                    class="p-1 hover:bg-gray-100 hover:rounded"
             >
                 <UnderlineIcon :size="24" title="Underline"/>
             </button>
@@ -32,25 +32,34 @@
             <button @click="editor.chain().focus().toggleStrike().run"
                     :disabled="!editor.can().chain().focus().toggleStrike().run()"
                     :class="{'bg-gray-200 rounded line-through':editor.isActive('strike')}"
-                    class="p-1 m-1 hover:bg-gray-100 hover:rounded"
+                    class="p-1 hover:bg-gray-100 hover:rounded"
             >
                 <StrikeIcon :size="24" title="Strike"/>
             </button>
 
             <button @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
-                    :class="{ 'is-active': editor.isActive('heading', { level: 1 }) }">
+                    :class="{ 'is-active': editor.isActive('heading', { level: 1 }) }"
+                    class="p-1 hover:bg-gray-100 hover:rounded"
+            >
+
                 <H1Icon :size="24" title="Heading1"/>
             </button>
             <button @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
-                    :class="{ 'is-active': editor.isActive('heading', { level: 2 }) }">
+                    :class="{ 'is-active': editor.isActive('heading', { level: 2 }) }"
+                    class="p-1 hover:bg-gray-100 hover:rounded"
+            >
                 <H2Icon :size="24" title="Heading2"/>
             </button>
             <button @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
-                    :class="{ 'is-active': editor.isActive('heading', { level: 3 }) }">
+                    :class="{ 'is-active': editor.isActive('heading', { level: 3 }) }"
+                    class="p-1 hover:bg-gray-100 hover:rounded"
+            >
                 <H3Icon :size="24" title="Heading3"/>
             </button>
             <button @click="editor.chain().focus().toggleHeading({ level: 4 }).run()"
-                    :class="{ 'is-active': editor.isActive('heading', { level: 4 }) }">
+                    :class="{ 'is-active': editor.isActive('heading', { level: 4 }) }"
+                    class="p-1 hover:bg-gray-100 hover:rounded"
+            >
                 <H4Icon :size="24" title="Heading4"/>
             </button>
 
@@ -73,15 +82,21 @@
             </button>
 
             <button @click="editor.chain().focus().toggleCodeBlock().run()"
-                    :class="{ 'is-active': editor.isActive('codeBlock') }">
+                    :class="{ 'is-active': editor.isActive('codeBlock') }"
+                    class="p-1 hover:bg-gray-100 hover:rounded"
+            >
                 <xmlIcon :size="24" title="Code"/>
             </button>
 
             <button @click="editor.chain().focus().toggleBlockquote().run()"
-                    :class="{ 'is-active': editor.isActive('blockquote') }">
+                    :class="{ 'is-active': editor.isActive('blockquote') }"
+                    class="p-1 hover:bg-gray-100 hover:rounded"
+            >
                 <QuoteIcon :size="24" title="Block quote"/>
             </button>
-            <button @click="editor.chain().focus().setHorizontalRule().run()">
+            <button @click="editor.chain().focus().setHorizontalRule().run()"
+                    class="p-1 hover:bg-gray-100 hover:rounded"
+            >
                 <HorizontalLineIcon :size="24" title="Horizontal line"/>
             </button>
             <!--            <button @click="editor.chain().focus().setHardBreak().run()">-->
@@ -97,9 +112,10 @@
             </button>
 
 
-            <button class="p-1 m-1 disabled:text-gray-400"
+            <button class="p-1 disabled:text-gray-400 hover:bg-gray-100 rounded"
                     @click="editor.chain().focus().undo().run()"
                     :disabled="!editor.can().chain().focus().undo().run()"
+
             >
                 <UndoIcon :size="24" title="Undo"/>
             </button>

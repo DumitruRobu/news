@@ -10,7 +10,7 @@
         <router-link class="rounded hover:bg-gray-200 p-2" :to="{name:'Home'}">Home</router-link>
         <router-link class="rounded hover:bg-gray-200 p-2" :to="{name:'MainMenu'}">Main Menu</router-link>
         <router-link class="rounded hover:bg-gray-200 p-2" :to="{name:'News'}">News</router-link>
-        <router-link class="rounded hover:bg-gray-200 p-2" :to="{name:'EXP'}">exp</router-link>
+        <router-link class="rounded hover:bg-gray-200 p-2" :to="{name:'EXP'}">Text Editor</router-link>
     </div>
 
     <router-view></router-view>
