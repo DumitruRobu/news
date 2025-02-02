@@ -14,7 +14,7 @@ import {Head, Link, useForm} from '@inertiajs/vue3';
 import MyEditor from "../components/MyEditor.vue";
 const form = useForm({
     title:null,
-    content: "<h3>Heading here</h3><p>I'm running Tiptap with Vue.js! </p>",
+    content: "<h3>Heading here!</h3><p>I'm running Tiptap with Vue.js! </p>",
 });
 
 function submitForm(){
