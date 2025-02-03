@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SubmitFormRequest;
 use App\Http\Resources\NewsFeedResource;
 use App\Models\NewsFeed;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -26,6 +27,7 @@ class MainController extends Controller
     }
     public function submitForm(SubmitFormRequest $request){
         $data = $request->validated();
-        return $data;
+        NewsFeed::firstOrCreate($data);
+        return response()->json(['The news has been created successfully!']);
     }
 }

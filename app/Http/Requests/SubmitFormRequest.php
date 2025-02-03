@@ -22,7 +22,8 @@ class SubmitFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'theContent'=>'required|string'
+            'title'=>'required|string',
+            'content'=>'required'
         ];
     }
 }
