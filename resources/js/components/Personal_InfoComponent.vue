@@ -1,8 +1,10 @@
 <template>
     <div class="flex flex-col items-center justify-center gap-3">
         <p>Lets add the info:</p>
-        <input v-model="this.peopleStore.name" class="border border-1 rounded p-2" type="text" placeholder="numele">
-        <button class="border border-1 p-2 rounded">
+        <input v-model="this.peopleStore.name" class="border border-1
+        rounded p-2 outline-none" type="text" placeholder="numele">
+
+        <button class="border border-1 px-5 py-1 rounded hover:bg-[#83B3AD] hover:text-white transition duration-500">
             <router-link :to="{name:'AddImg'}">Next</router-link>
         </button>
 

@@ -6,6 +6,7 @@ export const usePeopleStore = defineStore('people', {
         return {
             person: 0,
             name: null,
+            imagine:null,
             currentStep:0,
             totalSteps:4,
         }

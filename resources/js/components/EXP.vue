@@ -4,11 +4,18 @@
 <!--        <form @submit.prevent="submitForm" class="space-y-8">-->
             <my-editor v-model="form.content"></my-editor>
 <!--        </form>-->
+
+<!--        <div class="input-group mb-2">-->
+<!--            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">-->
+<!--        </div>-->
+
         <button @click.prevent="submitForm" class="active:translate-y-1 hover:bg-black hover:text-white p-2 border border-gray-500 rounded">Submit</button>
     </div>
     <div v-if="theResponse">
         <p>{{theResponse}}</p>
     </div>
+
+    <img src="../../../public/images/Ana.jpg" alt="Ana.jpg" class="w-[25%] m-2">
 </template>
 
 <script setup>

@@ -48,6 +48,11 @@ const router = createRouter({
             name: 'EXP',
             component: () => import('./components/EXP.vue')
         },
+        {
+            path: '/cereri',
+            name: 'Cereri',
+            component: () => import('./components/CereriComponent.vue')
+        },
     ]
 })
 export default router

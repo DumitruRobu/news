@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SubmitFormRequest;
 use App\Http\Resources\NewsFeedResource;
+use App\Models\Cereri;
 use App\Models\NewsFeed;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -29,5 +30,12 @@ class MainController extends Controller
         $data = $request->validated();
         NewsFeed::firstOrCreate($data);
         return response()->json(['The news has been created successfully!']);
+    }
+
+    public function getAllCereri(){
+        $cereri = Cereri::all();
+        return response()->json([
+            'cereri'=>$cereri
+        ]);
     }
 }

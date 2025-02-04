@@ -12,3 +12,4 @@ Route::get('/getNewsInfo/{id}', ['App\Http\Controllers\MainController', 'obtainI
 Route::get('/getLastOne', ['App\Http\Controllers\MainController', 'getLastOne']);
 Route::post('/submitForm', ['App\Http\Controllers\MainController', 'submitForm']);
 Route::get('/getAllNews', ['App\Http\Controllers\MainController', 'getAllNews']);
+Route::get('/getAllCereri', ['App\Http\Controllers\MainController', 'getAllCereri']);
