@@ -53,6 +53,11 @@ const router = createRouter({
             name: 'Cereri',
             component: () => import('./components/CereriComponent.vue')
         },
+        {
+            path: '/toDelete',
+            name: 'toDelete',
+            component: () => import('./components/toDelete.vue')
+        },
     ]
 })
 export default router

@@ -15,7 +15,7 @@
         <p>{{theResponse}}</p>
     </div>
 
-    <img src="../../../public/images/Ana.jpg" alt="Ana.jpg" class="w-[25%] m-2">
+<!--    <img src="../../../public/storage/images/Ana.jpg" alt="Ana.jpg" class="w-[25%] m-2">-->
 </template>
 
 <script setup>
