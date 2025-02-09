@@ -2,8 +2,9 @@
     <div class="theParentBlock" v-if="news.length > 0">
         <div class="newsDiv" v-for="new1 in news">
             <router-link :to="{name:'NewsMoreInfo', params:{id:new1.id}}">
-                <img :src="new1.image">
+            <img :src="`/storage/${new1.image}`" alt="News Image">
                 <p>{{ new1.title }}</p>
+
             </router-link>
         </div>
     </div>

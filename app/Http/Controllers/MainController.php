@@ -13,42 +13,61 @@ use Illuminate\Support\Facades\Storage;
 
 class MainController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('welcome');
     }
-    public function selectAll(){
+
+    public function selectAll()
+    {
         $allTheNews = NewsFeed::all();
         return NewsFeedResource::collection($allTheNews);
     }
-    public function obtainInfo($id){
+
+    public function obtainInfo($id)
+    {
         $theNewsInfo = NewsFeed::findOrFail($id);
         return new NewsFeedResource($theNewsInfo);
     }
-    public function getLastOne(){
+
+    public function getLastOne()
+    {
         $theLastElement = NewsFeed::latest('id')->first();
         return $theLastElement;
     }
-    public function submitForm(SubmitFormRequest $request){
+
+    public function submitForm(SubmitFormRequest $request)
+    {
+//        $data = $request->validated();
+//        NewsFeed::firstOrCreate($data);
+//        return response()->json(['The news has been created successfully!']);
+//
         $data = $request->validated();
+        $data['image'] = Storage::disk('public')->put("/images", $data['image']);
+//        $data['image'] = Storage::disk('public')->put("",$data['image']);
         NewsFeed::firstOrCreate($data);
-        return response()->json(['The news has been created successfully!']);
+        return response()->json([
+            'message' => "The request has been successfully registered!"
+        ]);
     }
 
-    public function registerRequest(RegisterRequest $request){
+    public function registerRequest(RegisterRequest $request)
+    {
         $data = $request->validated();
         $data['imagine'] = Storage::disk('public')->put("/images", $data['imagine']);
 
         $newRequest = Cereri::firstOrCreate($data);
 //        $person = Person::firstOrCreate(['name' => $data['name']], $data);
         return response()->json([
-            'message'=>"The request has been successfully registered!"
+            'message' => "The request has been successfully registered!"
         ]);
     }
 
-    public function getAllCereri(){
+    public function getAllCereri()
+    {
         $cereri = Cereri::all();
         return response()->json([
-            'cereri'=>$cereri
+            'cereri' => $cereri
         ]);
     }
 }

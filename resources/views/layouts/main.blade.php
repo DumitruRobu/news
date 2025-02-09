@@ -15,4 +15,9 @@
     @yield('content')
 </div>
 </body>
+<style>
+    *{
+        font-family: "Times New Roman", serif;
+    }
+</style>
 </html>

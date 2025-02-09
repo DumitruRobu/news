@@ -23,9 +23,11 @@
 </template>
 
 <script setup>
-import {onMounted, ref} from 'vue';
+import { usePeopleStore } from '../../../stores/people.js'
+import {onMounted, ref, computed} from 'vue';
 import {Head, Link, useForm} from '@inertiajs/vue3';
 import MyEditor from "../components/MyEditor.vue";
+import router from "../router";
 const theResponse = ref('');
 const fileRegistered = ref('');
 const form = useForm({
@@ -33,19 +35,41 @@ const form = useForm({
     content: "<h3>Heading here!</h3><p>I'm running Tiptap with Vue.js! </p>",
 });
 
+const peopleStore = usePeopleStore();
+
 function submitForm(){
-    axios.post('/api/submitForm', {'title':form.title, 'content':form.content}).then(res =>{
-        console.log(res.data);
-        if(res){
-            theResponse.value = res.data;
-        }
-    })
+    // axios.post('/api/submitForm', {'title':form.title, 'content':form.content}).then(res =>{
+    //     console.log(res.data);
+    //     if(res){
+    //         theResponse.value = res.data;
+    //     }
+    // })
+
+        let formData = new FormData();
+        formData.append('title', form.title);
+        formData.append('content', form.content);
+        formData.append('image', peopleStore.imagine);
+
+        axios.post('/api/submitForm', formData, {
+            headers:{
+                'Content-Type':'multipart/form-data'
+            }
+        }).then(res =>{
+            console.log('Request has been successfully added!');
+            peopleStore.name = null;
+            peopleStore.imagine = null;
+
+            router.push({name:'Final'});
+        }).catch(err =>{
+            console.log("An error has occured", err);
+        })
 }
 function updateFile(event){
     const file = event.target.files[0];
     if (file) {
         fileRegistered.value = URL.createObjectURL(file); //pentru preview
-        this.peopleStore.imagine = file; //pentru baza de date coloana imagine
+        peopleStore.imagine = file; //pentru baza de date coloana imagine
+        console.log(peopleStore.imagine);
     }
 }
 

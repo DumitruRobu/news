@@ -23,7 +23,8 @@ class SubmitFormRequest extends FormRequest
     {
         return [
             'title'=>'required|string',
-            'content'=>'required'
+            'content'=>'required',
+            'image'=>'file',
         ];
     }
 }

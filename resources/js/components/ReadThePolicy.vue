@@ -27,6 +27,7 @@ export default {
     },
     mounted(){
         this.peopleStore.currentStep = 3;
+        console.log(this.peopleStore.imagine);
     },
     methods:{
         registerRequest(){

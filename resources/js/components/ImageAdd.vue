@@ -55,6 +55,7 @@ export default {
             if (file) {
                 this.fileRegistered = URL.createObjectURL(file); //pentru preview
                 this.peopleStore.imagine = file; //pentru baza de date coloana imagine
+
             }
         },
         seeTheRegisteredFile(){
